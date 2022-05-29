@@ -9,5 +9,83 @@
     <div class="mb-4 payment-gateway-field checkout-content-inner-field" data-hook="response_code">
       <%= text_field_tag "#{param_prefix}[response_code]", '', { id: "response_code", class: 'spree-flat-input', minlength: 4, maxlength: 16, placeholder: Spree.t(:transaction_id)} %>
     </div>
+
+    <div class="mb-4 payment-gateway-field checkout-content-inner-field">
+      <%= select_tag "#{param_prefix}[digital_wallet_type]", options_from_collection_for_select(Spree::DigitalWalletType.all, :name, :name), { id: "digital_wallet_type", class: 'spree-flat-input' }  %>
+    </div>
   </div>
 </div>
+
+<script>
+    const btn_card = document.querySelector("#order_payments_attributes__payment_method_id_1");
+    const btn_check = document.querySelector("#order_payments_attributes__payment_method_id_2");
+    const btn_digital_wallet = document.querySelector("#order_payments_attributes__payment_method_id_3");
+    const btn_cod = document.querySelector("#order_payments_attributes__payment_method_id_4");
+
+    const routing_number = document.getElementById("routing_number");
+    const account_number = document.getElementById("account_number");
+    const check_number = document.getElementById("check_number");
+    const digital_wallet_number = document.getElementById("digital_wallet_number");
+    const transaction_id = document.getElementById("response_code");
+
+    if(btn_card) {
+        btn_card.addEventListener("click", () => {
+            if(routing_number){
+                routing_number.required = false;
+                account_number.required = false;
+                check_number.required = false;
+            }
+
+            if(digital_wallet_number) {
+                digital_wallet_number.required = false;
+                transaction_id.required = false;
+            }
+
+        });
+    }
+
+    if(btn_check) {
+        btn_check.addEventListener("click", () => {
+            routing_number.required = true;
+            account_number.required = true;
+            check_number.required = true;
+
+            if(digital_wallet_number) {
+                digital_wallet_number.required = false;
+                transaction_id.required = false;
+            }
+
+        });
+    }
+
+    if(btn_digital_wallet) {
+        btn_digital_wallet.addEventListener("click", () => {
+
+            if(routing_number){
+                routing_number.required = false;
+                account_number.required = false;
+                check_number.required = false;
+            }
+
+            digital_wallet_number.required = true;
+            transaction_id.required = true;
+        });
+    }
+
+    if(btn_cod) {
+        btn_cod.addEventListener("click", () => {
+            if(routing_number){
+                routing_number.required = false;
+                account_number.required = false;
+                check_number.required = false;
+            }
+
+            if(digital_wallet_number) {
+                digital_wallet_number.required = false;
+                transaction_id.required = false;
+            }
+
+        });
+    }
+
+</script>

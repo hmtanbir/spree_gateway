@@ -6,6 +6,7 @@
       <th><%= "#{Spree.t('date')}/#{Spree.t('time')}" %></th>
       <th class="text-center"><%= Spree.t(:amount) %></th>
       <th class="text-center"><%= Spree.t(:payment_method) %></th>
+      <th class="text-center"><%= Spree.t(:payment_type) %></th>
       <th class="text-center"><%= Spree.t(:routing_number) %></th>
       <th class="text-center"><%= Spree.t(:check_number) %></th>
       <th class="text-center"><%= Spree.t(:account_number) %></th>
@@ -21,8 +22,7 @@
         <td><%= pretty_time(payment.created_at) %></td>
         <td class="amount text-center"><%= payment.display_amount %></td>
         <td class="text-center"><%= payment_method_name(payment) %></td>
-
-
+        <td class="text-center"><%= payment&.digital_wallet_type %></td>
         <td class="text-center"><%= payment.routing_number %></td>
         <td class="text-center"><%= payment.check_number %></td>
         <td class="text-center"><%= payment.account_number.blank? ? payment&.digital_wallet_number : payment.account_number %></td>

@@ -49,6 +49,12 @@ For`PayPal` support head over to [braintree_vzero](https://github.com/spree-cont
     ```ruby
     bundle exec rails g spree_gateway:install
     ```
+4. Create New Payments as given below order:
+   i) Card (already exists if you load sample data)
+   ii) Check (already exists if you load sample data)
+   iii) Digital Wallet Payment
+   iv) Cash On Delivery
+
 
 Finally, make sure to **restart your app**. Navigate to *Configuration > Payment Methods > New Payment Method* in the admin panel and you should see that a bunch of additional gateways have been added to the list.
 
