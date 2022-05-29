@@ -2,12 +2,16 @@
   <% param_prefix = "order[payments_attributes][]" %>
 
   <div class="payment-gateway-fields">
-    <div class="mb-4 payment-gateway-field checkout-content-inner-field">
-      <%= text_field_tag "#{param_prefix}[account_number]", '', { id: "account_number", class: 'spree-flat-input', minlength: 11, placeholder: Spree.t(:account_number)} %>
-    </div>
-
     <div class="mb-4 payment-gateway-field checkout-content-inner-field" data-hook="routing_number">
       <%= text_field_tag "#{param_prefix}[routing_number]", '', { id: "routing_number", class: 'spree-flat-input', minlength: 4, maxlength: 16, placeholder: Spree.t(:routing_number)} %>
     </div>
+
+    <div class="mb-4 payment-gateway-field checkout-content-inner-field">
+      <%= text_field_tag "#{param_prefix}[account_number]", '', { id: "account_number", class: 'spree-flat-input', minlength: 11, placeholder: Spree.t(:account_number)} %>
+    </div>
+    
+    <div class="mb-4 payment-gateway-field checkout-content-inner-field">
+      <%= text_field_tag "#{param_prefix}[check_number]", '', { id: "check_number", class: 'spree-flat-input', minlength: 6, placeholder: Spree.t(:check_number)} %>
+    </div> 
   </div>
 </div>
