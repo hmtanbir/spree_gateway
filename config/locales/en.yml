@@ -7,6 +7,8 @@ en:
         account_holder_type: Account Holder Type
         account_number: Account Number
         routing_number: Routing Number
+      spree/order:
+        payment_method: Method
   spree:
     check: Check
     payment_has_been_cancelled: The payment has been cancelled.
@@ -48,4 +50,4 @@ en:
     transaction_id: Transaction ID
     account_number: Account Number
     routing_number: Routing Number
-
+    check_number: Check Number
