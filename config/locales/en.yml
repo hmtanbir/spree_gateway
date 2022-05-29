@@ -51,3 +51,4 @@ en:
     account_number: Account Number
     routing_number: Routing Number
     check_number: Check Number
+    payment_type: Type
